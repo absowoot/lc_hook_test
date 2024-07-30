@@ -30,9 +30,16 @@ Hooks.AddUser = {
             e.preventDefault();
 
             console.log(this.el);
-            let instance = this.el.dataset.phxComponent;
 
+            // This does not work as expected
+            let instance = this.el.dataset.phxComponent;
             this.pushEventTo(this.el, "instance", { instance: instance });
+
+            // This DOES work as expected
+            // let hook = this.el.getAttribute("phx-hook"),
+            //     component = document.querySelector(`[phx-hook='${hook}']`);
+
+            // this.pushEventTo(component, "instance", { instance: instance });
         });
     },
 };
